@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Trực Tuyến</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Thêm Font Awesome -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Cửa Hàng Trực Tuyến</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Trang Chủ</a></li>
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+                <li><a href="#" onclick="openCart()">Giỏ Hàng (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Chào Mừng Đến Với Cửa Hàng</h2>
+            <p>Tìm kiếm những sản phẩm tốt nhất với giá cả hợp lý!</p>
+        </section>
+
+        <section class="products">
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-tshirt"></i></div> <!-- Biểu tượng áo -->
+                <h3>Sản Phẩm 1</h3>
+                <p>199,000₫</p>
+                <button onclick="addToCart('Sản Phẩm 1', 199000)">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-capsules"></i></div> <!-- Biểu tượng mũ -->
+                <h3>Sản Phẩm 2</h3>
+                <p>299,000₫</p>
+                <button onclick="addToCart('Sản Phẩm 2', 299000)">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-shoe-prints"></i></div> <!-- Biểu tượng giày -->
+                <h3>Sản Phẩm 3</h3>
+                <p>399,000₫</p>
+                <button onclick="addToCart('Sản Phẩm 3', 399000)">Thêm vào giỏ hàng</button>
+            </div>
+            <!-- Thêm các sản phẩm khác tại đây -->
+        </section>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Giỏ Hàng</h2>
+            <ul id="cart-items">
+                <!-- Các sản phẩm trong giỏ hàng sẽ hiển thị tại đây -->
+            </ul>
+            <p><strong>Tổng tiền:</strong> <span id="total-price">0₫</span></p>
+            <button onclick="checkout()">Thanh Toán</button>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckout()">&times;</span>
+            <h2>Thanh Toán</h2>
+            <form id="checkout-form">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" required>
+                
+                <label for="address">Địa chỉ:</label>
+                <input type="text" id="address" required>
+                
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" required>
+
+                <label for="payment-method">Phương thức thanh toán:</label>
+                <select id="payment-method" required>
+                    <option value="cash">Tiền mặt</option>
+                    <option value="card">Thẻ tín dụng</option>
+                    <option value="bank">Chuyển khoản ngân hàng</option>
+                </select>
+                
+                <button type="submit">Hoàn Tất Đặt Hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cửa Hàng Trực Tuyến. Bản quyền thuộc về chúng tôi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
